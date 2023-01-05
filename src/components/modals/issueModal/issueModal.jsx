@@ -7,6 +7,7 @@ import TextAreaWithLabel from '../../inputs/textAreaWithLabel'
 import * as S from './issueModal.style'
 import SelectWithLabel from '../../inputs/selectWithLabel'
 import DatePickerWithLabel from '../../inputs/datePickerWithLabel'
+import debounce from '../../../commons/lib/debounce'
 
 export default function IssueModal({ isEdit, status, defaultValue, onCancel }) {
   const { addIssue } = useAddIssue()
@@ -36,7 +37,7 @@ export default function IssueModal({ isEdit, status, defaultValue, onCancel }) {
     }))
   }
 
-  const handleClickOk = () => {
+  const handleClickOk = debounce(() => {
     if (!inputs.title) {
       messageOpen('제목을 입력해 주세요.')
       return
@@ -64,11 +65,12 @@ export default function IssueModal({ isEdit, status, defaultValue, onCancel }) {
 
     isEdit ? updateIssue(inputs.sequence, inputs) : addIssue(inputs)
     onCancel()
-  }
+  }, 1000)
+
   return (
     <>
       {contextHolder}
-      <Modal open centered onOk={handleClickOk} onCancel={onCancel}>
+      <Modal open centered okText='저장' cancelText='취소' onOk={handleClickOk} onCancel={onCancel}>
         <S.Wrapper>
           <S.TitleWrapper>#{defaultValue?.sequence || ' Issue'}</S.TitleWrapper>
           <TextInputWithLabel
