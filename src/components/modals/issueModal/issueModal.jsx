@@ -19,7 +19,7 @@ export default function IssueModal({ isEdit, status, defaultValue, onCancel }) {
     title: defaultValue?.title || '',
     contents: defaultValue?.contents || '',
     status: defaultValue?.status || status || '',
-    assignee: defaultValue?.addIssue || '',
+    assignee: defaultValue?.assignee || '',
     dueDate: defaultValue?.dueDate || '',
   })
 
