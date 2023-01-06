@@ -18,7 +18,13 @@ export default function Column({ title, status, onClickAddItem, onClickItem }) {
         {issues &&
           Object.entries(issues)
             .filter(([, v]) => v.status === status)
-            .sort(([, a], [, b]) => a.order - b.order)
+            .sort(([, a], [, b]) => {
+              if (a.order > b.order) return 1
+              if (a.order < b.order) return -1
+
+              if (a.sequence > b.sequence) return 1
+              return -1
+            })
             .map(([k, v]) => <IssueItem key={k} issue={v} onClickItem={onClickItem} />)}
       </S.ContentsWrapper>
     </S.Wrapper>

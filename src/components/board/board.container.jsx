@@ -12,7 +12,7 @@ function BoardContainer() {
   })
 
   const [grabIssue] = useRecoilState(grabIssueState)
-  const { updateIssue } = useUpdateIssue()
+  const { updateIssueOrderWhenAdded } = useUpdateIssue()
 
   const handleCloseIssueModal = () => {
     setIssueModalState({
@@ -32,7 +32,11 @@ function BoardContainer() {
 
   const handleUpdateIssueStatus = (targetStatus) => {
     if (grabIssue.status === targetStatus) return
-    updateIssue(grabIssue.sequence, { ...grabIssue, status: targetStatus })
+
+    updateIssueOrderWhenAdded(targetStatus, grabIssue.sequence, {
+      ...grabIssue,
+      status: targetStatus,
+    })
   }
 
   return (

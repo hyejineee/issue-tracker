@@ -25,7 +25,7 @@ const useUpdateIssue = () => {
     const copy = { ...issues.items }
 
     swap(
-      Object.values(issues.items)
+      Object.values(copy)
         .filter((e) => e.status === targetIssue.status)
         .sort((a, b) => a.order - b.order),
       targetIssue,
@@ -39,9 +39,31 @@ const useUpdateIssue = () => {
     setIssues((prev) => ({ sequence: prev.sequence, items: copy }))
   }
 
+  const updateIssueOrderWhenDropAdded = (status, sequence, newInputs) => {
+    const copy = { ...issues.items }
+    copy[sequence] = { ...copy[sequence], ...newInputs, order: sequence }
+
+    Object.values(copy)
+      .filter((e) => e.status === status)
+      .sort((a, b) => {
+        if (a.order > b.order) return 1
+        if (a.order < b.order) return -1
+
+        if (a.sequence > b.sequence) return 1
+        return -1
+      })
+      .map((e, index) => ({ ...e, order: index + 1 }))
+      .forEach((e) => {
+        copy[e.sequence] = { ...e }
+      })
+
+    setIssues((prev) => ({ sequence: prev.sequence, items: copy }))
+  }
+
   return {
     updateIssue,
     updateIssueOrder,
+    updateIssueOrderWhenAdded: updateIssueOrderWhenDropAdded,
   }
 }
 
