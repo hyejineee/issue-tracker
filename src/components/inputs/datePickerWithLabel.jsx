@@ -1,10 +1,11 @@
 import moment from 'moment/moment'
 import { DatePicker } from 'antd'
+import dayjs from 'dayjs'
 import locale from 'antd/lib/date-picker/locale/en_US'
 import * as S from './common.styles'
 
 export default function DatePickerWithLabel({ label, name, defaultValue, placeholder, onChange }) {
-  const disabledDate = (current) => current && current < moment().endOf('day')
+  const disabledDate = (current) => current && current < moment().subtract(1, 'days').endOf('day')
 
   const handleChange = (_, dateString) => {
     onChange(name, dateString)
@@ -18,7 +19,7 @@ export default function DatePickerWithLabel({ label, name, defaultValue, placeho
           format='YYYY-MM-DD'
           locale={locale}
           disabledDate={disabledDate}
-          defaultValue={defaultValue && moment(defaultValue, 'YYYY-MM-DD')}
+          defaultValue={defaultValue !== undefined ? dayjs(defaultValue, 'YYYY-MM-DD') : undefined}
           placeholder={placeholder}
           onChange={handleChange}
           style={{ width: '100%' }}
