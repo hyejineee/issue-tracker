@@ -63,7 +63,7 @@ const useUpdateIssue = () => {
   return {
     updateIssue,
     updateIssueOrder,
-    updateIssueOrderWhenAdded: updateIssueOrderWhenDropAdded,
+    updateIssueOrderWhenDropAdded,
   }
 }
 
