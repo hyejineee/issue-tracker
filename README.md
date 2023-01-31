@@ -106,11 +106,11 @@
 ## 실행방법 <a id="5"></a>
 1. 프로젝트를 클론합니다.
 ```
-git clone https://github.com/hyejineee/pre-onboarding-8th-3.git
+git clone https://github.com/hyejineee/issue-tracker.git
 ```
 2. 클론한 프로젝트 내부로 이동합니다. 
 ```
-cd pre-onboarding-8th-3
+cd issue-tracker
 ```
 3. 의존 패키지를 설치합니다. 
 ```
