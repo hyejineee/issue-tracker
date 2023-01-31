@@ -101,11 +101,7 @@
 ## 기술 스택 <a id="4"></a>
 
 
-<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white" >
-<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" >
-<img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white" >
-<img src="https://img.shields.io/badge/Recoil-CA4245?style=for-the-badge&logo=Recoil&logoColor=white" >
-<img src="https://img.shields.io/badge/Andt-61DAFB?style=for-the-badge&logo=Andt&logoColor=white" >
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white" > <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" > <img src="https://img.shields.io/badge/styledcomponents-DB7093?style=for-the-badge&logo=styledcomponents&logoColor=white" > <img src="https://img.shields.io/badge/Recoil-CA4245?style=for-the-badge&logo=Recoil&logoColor=white" > <img src="https://img.shields.io/badge/Andt-61DAFB?style=for-the-badge&logo=Andt&logoColor=white" >
 
 ## 실행방법 <a id="5"></a>
 1. 프로젝트를 클론합니다.
